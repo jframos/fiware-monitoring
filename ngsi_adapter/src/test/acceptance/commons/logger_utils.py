@@ -40,8 +40,9 @@ LOG_FILE_FORMATTER = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 
 
 # By default, create the ./log directory to store logs
-if not os.path.exists("./log"):
-    os.makedirs("./log")
+if not os.path.exists("./logs"):
+    os.makedirs("./logs")
+
 
 logging.config.fileConfig("./settings/logging.conf")
 
