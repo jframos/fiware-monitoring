@@ -2,7 +2,7 @@
 
 # Copyright 2015 Telefonica Investigación y Desarrollo, S.A.U
 #
-# This file is part of FI-WARE project.
+# This file is part of FIWARE project.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -44,12 +44,11 @@ def _load_project_properties():
     store the resulting dictionary in the lettuce world global variable.
     """
 
-    logger.debug("Loading test properties")
     with open(PROPERTIES_FILE) as config_file:
         try:
             world.config = json.load(config_file)
         except Exception, e:
-            logger.error('Error parsing config file: %s' % e)
+            print 'Error parsing config file: %s' % e
             sys.exit(1)
 
 
@@ -60,16 +59,16 @@ def set_up():
     :return: None
     """
 
-    logger.info("Setting up test execution")
     _load_project_properties()
 
     """
     Make sure the logs path exists and create it otherwise.
     """
-    logger.debug("Generating log directories if not exist")
     log_path = world.config[PROPERTIES_CONFIG_ENV][PROPERTIES_CONFIG_ENV_LOGS_PATH]
     if not os.path.exists(log_path):
         os.makedirs(log_path)
+
+    logger.debug("Generating remote log directories if not exist")
 
     log_path = world.config[PROPERTIES_CONFIG_ENV][PROPERTIES_CONFIG_ENV_LOCAL_PATH_REMOTE_LOGS]
     if not os.path.exists(log_path):

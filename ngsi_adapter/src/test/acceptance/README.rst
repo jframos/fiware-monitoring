@@ -68,8 +68,8 @@ With this command, you will execute:
 
 **Test case execution using virtualenv**
 
-1. Create a virtual environment somewhere *(virtualenv ~/venv)*
-#. Activate the virtual environment *(source ~/venv/bin/activate)*
+1. Create a virtual environment somewhere *(virtualenv $WORKON_HOME/venv)*
+#. Activate the virtual environment *(source $WORKON_HOME/venv/bin/activate)*
 #. Go to *ngsi_adapter/src/test/acceptance* folder in the project
 #. Install the requirements for the acceptance tests in the virtual environment *(pip install -r requirements.txt --allow-all-external)*
 
@@ -81,8 +81,7 @@ that will provide all environment configurations for launching test cases.
 1. Download and install Vagrant (https://www.vagrantup.com/downloads.html)
 #. Go to *ngsi_adapter/src/test/acceptance* folder in the project
 #. Execute *vagrant up* to launch a VM based on Vagrantfile provided.
-#. After Vagrant provision, your VM is properly configured to launch acceptance tests. You have to access to the VM using
-*vagrant ssh* and change to */vagrant* directory that will have mounted your workspace *(test/acceptance)*.
+#. After Vagrant provision, your VM is properly configured to launch acceptance tests. You have to access to the VM using *vagrant ssh* and change to */vagrant* directory that will have mounted your workspace *(test/acceptance)*.
 
 If you need more information about how to use Vagrant, you can see
 `Vagrant Getting Started <https://docs.vagrantup.com/v2/getting-started/index.html>`_
